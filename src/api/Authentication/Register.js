@@ -10,7 +10,7 @@ router.post(
     body("firstName", "firstName is required").not().isEmpty(),
     body("lastName", "lastName is required").not().isEmpty(),
     body("username", "Username is required").not().isEmpty(),
-    body("email", "Email is required").isEmail(),
+    body("email", "Email is required").isEmail().withMessage("Please enter a valid email"),
     body("phone", "Phone is required").not().isEmpty(),
     body("password", "At least 6 characters").isLength({ min: 6 }),
   ],
@@ -45,11 +45,13 @@ router.post(
 
       //send cookies in httpOnly
 
-      res.cookie("token", token, {
-        httpOnly: true,
-        secure: true,
-        sameSite: "none",
-      }).send;
+      res
+        .cookie("token", token, {
+          httpOnly: true,
+          secure: true,
+          sameSite: "none",
+        })
+        .send();
       res.status(200).json("Register Successful");
     } catch (err) {
       res.status(500);

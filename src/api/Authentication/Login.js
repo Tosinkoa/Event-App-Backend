@@ -30,11 +30,13 @@ router.post(
 
       //send cookies in httpOnly
 
-      res.cookie("token", token, {
-        httpOnly: true,
-        secure: true,
-        sameSite: "none",
-      }).send;
+      res
+        .cookie("token", token, {
+          httpOnly: true,
+          secure: true,
+          sameSite: "none",
+        })
+        .send();
       res.status(200).json("Success");
     } catch (err) {
       res.status(500);
