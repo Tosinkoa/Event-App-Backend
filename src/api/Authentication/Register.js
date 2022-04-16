@@ -23,7 +23,7 @@ router.post(
     const { firstName, lastName, username, email, phone, password } = req.body;
 
     try {
-      let user = await User.findOne({ email, username });
+      let user = await User.findOne({ username });
 
       if (user)
         return res.status(400).json({
@@ -55,7 +55,6 @@ router.post(
       }).send;
       res.status(200).json("Register Successful");
     } catch (err) {
-      console.log(err);
       res.status(400).json("Bad Request");
     }
   }
