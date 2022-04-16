@@ -37,7 +37,7 @@ router.post(
       }).send;
       res.status(200).json("Success");
     } catch (err) {
-      res.status(400).json("Bad Request");
+      res.status(500);
     }
   }
 );

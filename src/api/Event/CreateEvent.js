@@ -29,7 +29,7 @@ router.post(
       const savedEvent = await event.save();
       res.status(200).json(savedEvent);
     } catch (err) {
-      return res.status(500).json({ msg: "Server error" });
+      return res.status(500);
     }
   }
 );

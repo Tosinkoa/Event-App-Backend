@@ -10,7 +10,7 @@ router.get("/my-events", auth, async (req, res) => {
     }
     res.status(200).json(event);
   } catch (err) {
-    res.status(400).json({ msg: "Bad Request" });
+    res.status(500);
   }
 });
 

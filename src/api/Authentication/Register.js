@@ -23,7 +23,11 @@ router.post(
     const { firstName, lastName, username, email, phone, password } = req.body;
 
     try {
-      const user = new User({
+      let user = await User.findOne({ email, username });
+
+      if (user) return res.status(400).json({ msg: "An acoount with this email or username already exists" });
+
+      user = new User({
         firstName,
         lastName,
         username,
@@ -48,7 +52,7 @@ router.post(
       }).send;
       res.status(200).json("Register Successful");
     } catch (err) {
-      res.status(400).json("Bad Request");
+      res.status(500);
     }
   }
 );

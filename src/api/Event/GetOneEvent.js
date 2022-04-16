@@ -10,7 +10,7 @@ router.get("/one-event/:id", auth, async (req, res) => {
     }
     res.status(200).json(event);
   } catch (err) {
-    return res.status(400).json(err);
+    return res.status(500);
   }
 });
 

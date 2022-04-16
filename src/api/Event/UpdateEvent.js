@@ -12,6 +12,7 @@ router.put("/update-event/:id", async (req, res) => {
     const updatedEvent = await event.save();
     res.status(200).json(updatedEvent);
   } catch (err) {
+    console.log(err);
     res.status(500).json({ msg: "Server Error" });
   }
 });

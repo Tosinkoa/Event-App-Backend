@@ -14,8 +14,8 @@
     "nodemon": "^2.0.15"
   },
   "scripts": {
-    "start": "nodemon server",
-    "dev": "node server"
+    "start": "node server",
+    "dev": "nodemon server"
   },
   "name": "ivana-test-solution",
   "version": "1.0.0",
